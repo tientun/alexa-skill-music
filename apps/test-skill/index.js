@@ -43,7 +43,7 @@ app.intent('playMusic', {
     },
     function(request, response) {
         var stream = {
-            "url": "http://api.mp3.zing.vn/api/mobile/source/song/LGJGTLGNQJGXEVGTLDJTDGLG",
+            "url": "https://api.mp3.zing.vn/api/mobile/source/song/LGJGTLGNQJGXEVGTLDJTDGLG",
             "token": "some_token",
             "expectedPreviousToken": "some_previous_token",
             "offsetInMilliseconds": 0
