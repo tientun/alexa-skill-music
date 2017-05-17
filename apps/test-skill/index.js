@@ -44,8 +44,8 @@ app.intent('playMusic', {
     function(request, response) {
         var stream = {
             "url": "https://api.mp3.zing.vn/api/mobile/source/song/LGJGTLGNQJGXEVGTLDJTDGLG",
-            "token": "some_token",
-            "expectedPreviousToken": "some_previous_token",
+            "token": null,
+            "expectedPreviousToken": null,
             "offsetInMilliseconds": 0
         };
         response.audioPlayerPlayStream("REPLACE_ALL", stream);
