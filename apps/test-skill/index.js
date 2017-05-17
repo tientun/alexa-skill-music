@@ -1,6 +1,7 @@
 module.change_code = 1;
 'use strict';
 
+var request = require('request');
 var alexa = require('alexa-app');
 var app = new alexa.app('test-skill');
 
@@ -41,13 +42,19 @@ app.intent('playMusic', {
             "give me some song"
         ]
     },
-    function(request, response) {
-        var stream = {
-            "url": "https://zmp3-mp3-s1-te-zmp3-fpthcm-1.zadn.vn/dd5fd7c22c86c5d89c97/5726677275771157796?key=TuE9YwD6eFdgV-ZalO30ew&expires=1495100368",
-            "token": "this_is_token",
-            "offsetInMilliseconds": 0
-        };
-        response.audioPlayerPlayStream("REPLACE_ALL", stream);
+    function(r, response) {
+        var url = "http://api.mp3.zing.vn/api/mobile/source/song/LGJGTLGNQJGXEVGTLDJTDGLG"
+        var r = request(url, function(e, res, body) {
+            console.log();
+            var mp3Link = r.uri.href.replace("http:","https:");
+            console.log(mp3Link);
+            var stream = {
+                "url": mp3Link,
+                "token": "this_is_token",
+                "offsetInMilliseconds": 0
+            };
+            response.audioPlayerPlayStream("REPLACE_ALL", stream);
+        });
     }
 );
 
