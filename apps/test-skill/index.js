@@ -1,6 +1,7 @@
 module.change_code = 1;
 'use strict';
 
+var ZingDataHelper = require('./zing_data_helper');
 var alexa = require('alexa-app');
 var app = new alexa.app('test-skill');
 
@@ -42,12 +43,20 @@ app.intent('playMusic', {
         ]
     },
     function(r, response) {
-        var stream = {
-            "url": mp3Link,
-            "token": "this_is_token",
-            "offsetInMilliseconds": 0
-        };
-        response.audioPlayerPlayStream("REPLACE_ALL", stream);
+        var zingHelper = new ZingDataHelper();
+        return zingHelper.requestAirportStatus('LGJGTLGNQJGXEVGTLDJTDGLG').then(function(directLink) {
+            console.log("link: " + directLink);
+            var stream = {
+                "url": directLink,
+                "token": "this_is_token",
+                "offsetInMilliseconds": 0
+            };
+            response.audioPlayerPlayStream("REPLACE_ALL", stream);
+        }).catch(function(err) {
+            console.log(err.statusCode);
+            var prompt = 'I didn\'t have data for this song';
+            response.say(prompt).shouldEndSession(false).send();
+        });
     }
 );
 
