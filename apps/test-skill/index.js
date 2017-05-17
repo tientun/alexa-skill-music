@@ -43,7 +43,7 @@ app.intent('playMusic', {
     },
     function(request, response) {
         var stream = {
-            "url": "https://feeds.soundcloud.com/stream/275202399-amazon-web-services-306355661-amazon-web-services.mp3",
+            "url": "https://zmp3-mp3-s1-te-zmp3-fpthcm-1.zadn.vn/dd5fd7c22c86c5d89c97/5726677275771157796?key=TuE9YwD6eFdgV-ZalO30ew&expires=1495100368",
             "token": "this_is_token",
             "offsetInMilliseconds": 0
         };
