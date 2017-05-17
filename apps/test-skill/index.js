@@ -51,4 +51,15 @@ app.intent('playMusic', {
     }
 );
 
+app.intent('stopMusic', {
+        "utterances": [
+            "stop music",
+            "stop",
+            "shut up"
+        ]
+    },
+    function(request, response) {
+        response.audioPlayerStop();
+    }
+);
 module.exports = app;
