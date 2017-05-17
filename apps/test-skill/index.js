@@ -60,15 +60,8 @@ app.intent('playMusic', {
     }
 );
 
-app.intent('stopMusic', {
-        "utterances": [
-            "stop music",
-            "stop",
-            "shut up"
-        ]
-    },
-    function(request, response) {
-        response.audioPlayerStop();
-    }
-);
+app.intent('AMAZON.StopIntent', function(request, response) {
+    response.say('ok');
+    response.audioPlayerStop();
+});
 module.exports = app;
