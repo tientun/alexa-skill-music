@@ -43,7 +43,7 @@ app.intent('playMusic', {
     },
     function(request, response) {
         var stream = {
-            "url": "https://api.mp3.zing.vn/api/mobile/source/song/LGJGTLGNQJGXEVGTLDJTDGLG",
+            "url": "https://feeds.soundcloud.com/stream/275202399-amazon-web-services-306355661-amazon-web-services.mp3",
             "token": null,
             "expectedPreviousToken": null,
             "offsetInMilliseconds": 0
