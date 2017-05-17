@@ -1,7 +1,6 @@
 module.change_code = 1;
 'use strict';
 
-var request = require('request');
 var alexa = require('alexa-app');
 var app = new alexa.app('test-skill');
 
@@ -43,18 +42,12 @@ app.intent('playMusic', {
         ]
     },
     function(r, response) {
-        var url = "http://api.mp3.zing.vn/api/mobile/source/song/LGJGTLGNQJGXEVGTLDJTDGLG"
-        var r = request(url, function(e, res, body) {
-            console.log();
-            var mp3Link = r.uri.href.replace("http:","https:");
-            console.log(mp3Link);
-            var stream = {
-                "url": mp3Link,
-                "token": "this_is_token",
-                "offsetInMilliseconds": 0
-            };
-            response.audioPlayerPlayStream("REPLACE_ALL", stream);
-        });
+        var stream = {
+            "url": mp3Link,
+            "token": "this_is_token",
+            "offsetInMilliseconds": 0
+        };
+        response.audioPlayerPlayStream("REPLACE_ALL", stream);
     }
 );
 
